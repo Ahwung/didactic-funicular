@@ -41,6 +41,15 @@ router.get("/new", (req, res) => {
 	res.render('restaurants/new.ejs')
 })
 
+// Route to get to Show page
+router.get("/:id", (req, res) => {
+	Restaurant.findById(req.params.id, (err, foundRestaurant) => {
+		res.render('restaurants/show.ejs', {
+			restaurant: foundRestaurant
+		})
+	})
+})
+
 // Route to get to Index Page
 router.get("/", (req, res) => {
 	Restaurant.find({}, (error, allRestaurants) => {

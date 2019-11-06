@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="show-restaurant">
+                <h1><%=restaurant.name%></h1>
+                <img src="<%=restaurant.img%>">
+                <h4>Cuisine: <%=restaurant.cuisine%></h4>
+                <h4>Address: <%=restaurant.address%></h4>
+                <% for(let i = 0; i < restaurant.dishes.length; i++) { %>
+                    <h4>Popular Dishes: <%=restaurant.dishes[i]</h4>
+                <% } %>
+            </div>
+        </div>
+        <nav>
+            <a href="/fruits">Back to Fruits Index</a>
+        </nav>
+    </body>
+</html>
