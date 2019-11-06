@@ -11,6 +11,8 @@ const db = mongoose.connection;
 
 require("dotenv").config();
 
+const restaurantsController = require('./controllers/restaurants.js')
+
 // ========================
 // Port
 // ========================
@@ -47,6 +49,8 @@ app.use(express.urlencoded({ extended: false }))
 
 // Be able to use delete and put routes
 app.use(methodOverride('_method'))
+
+app.use('/restaurants', restaurantsController)
 
 // ========================
 // Routes
