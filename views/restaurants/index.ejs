@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>All Restaurants</h1>
+            <% for(let i = 0; i < restaurants.length; i++) { %>
+                <div class="index-card">
+                    <h3><%=restaurants[i].name%></h3>
+                    <img class="index-image" src="<%=restaurants[i].img%>">
+                    <p>City: <%=restaurants[i].city%></p>
+                    <p>Cuisine: <%=restaurants[i].cuisine%></p>
+                </div>
+            <% } %>
+        </div>
+        <nav>
+            <a href="/fruits/new">Create a New Fruit</a>
+        </nav>
+    </body>
+</html>
