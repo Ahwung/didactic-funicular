@@ -66,4 +66,11 @@ router.post('/', (req, res) => {
 	})
 })
 
+// Route to delte entries in the collection
+router.delete("/:id", (req, res) => {
+	Restaurant.findByIdAndRemove(req.params.id, (err, deletedRestaurant) => {
+		res.redirect("/restaurants")
+	})
+})
+
 module.exports = router
