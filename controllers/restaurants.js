@@ -68,6 +68,13 @@ router.get("/", (req, res) => {
 	})
 })
 
+// Route to edit entries in the collection
+router.put("/:id", (req, res) => {
+	Restaurant.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedRestaurant) => {
+		res.redirect("/restaurants" + req.params.id)
+	})
+})
+
 // Route to create entries in the collection
 router.post('/', (req, res) => {
 	Restaurant.create(req.body, (err, createdRestaurant) => {
@@ -75,7 +82,7 @@ router.post('/', (req, res) => {
 	})
 })
 
-// Route to delte entries in the collection
+// Route to delete entries in the collection
 router.delete("/:id", (req, res) => {
 	Restaurant.findByIdAndRemove(req.params.id, (err, deletedRestaurant) => {
 		res.redirect("/restaurants")
