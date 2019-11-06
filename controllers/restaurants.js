@@ -71,7 +71,7 @@ router.get("/", (req, res) => {
 // Route to edit entries in the collection
 router.put("/:id", (req, res) => {
 	Restaurant.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedRestaurant) => {
-		res.redirect("/restaurants" + req.params.id)
+		res.redirect("/restaurants/" + req.params.id)
 	})
 })
 
