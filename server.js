@@ -5,6 +5,7 @@
 const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
+const session = require("express-session")
 
 const app = express();
 const db = mongoose.connection;
@@ -13,6 +14,7 @@ require("dotenv").config();
 
 const restaurantsController = require('./controllers/restaurants.js')
 const usersController = require('./controllers/users.js')
+const sessionsController = require('./controllers/sessions.js')
 
 // ========================
 // Port
@@ -51,8 +53,15 @@ app.use(express.urlencoded({ extended: false }))
 // Be able to use delete and put routes
 app.use(methodOverride('_method'))
 
+app.use(session({
+	secret: 'feedmeseymour',
+	resave: false,
+	saveUninitialized: false
+}))
+
 app.use('/restaurants', restaurantsController)
 app.use('/users', usersController)
+app.use('/sessions', sessionsController)
 
 // ========================
 // Routes
