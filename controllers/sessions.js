@@ -25,15 +25,14 @@ router.post('/', (req, res) => {
 	})
 })
 
-router.post('/destroy', (req, res) => {
+router.post('/destroy', (req, res)=>{ 
 	req.session.destroy((err)=>{
 		if(err){
 			res.send(err)
 		} else {
-			alert("You have been logged out")
 			res.redirect("/restaurants")
 		}
 	});
-})
+});
 
 module.exports = router
