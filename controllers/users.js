@@ -5,7 +5,7 @@ const User = require('../models/users.js')
 
 // Seed data
 router.get("/seed", (req, res) => {
-	Restaurant.create(
+	User.create(
 		[
 			{
 				username: "adam",
