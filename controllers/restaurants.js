@@ -11,7 +11,7 @@ router.get("/seed", (req, res) => {
 				cuisine: "Dessert",
 				city: "Daly City",
 				address: "148C Serramonte Ctr, Daly City, CA 94015",
-				dishes: ["Q Mochi", "Hot Grass Jelly"]
+				dishes: "Q Mochi, Hot Grass Jelly"
 			},
 			{
 				name: "Cheese Board Pizza",
@@ -19,7 +19,7 @@ router.get("/seed", (req, res) => {
 				cuisine: "Pizza",
 				city: "Berkeley",
 				address: "1512 Shattuck Ave, Berkeley, CA 94709",
-				dishes: ["Vegetarian Pizza", "Corn Pizza"]
+				dishes: "Vegetarian Pizza, Corn Pizza"
 			},
 			{
 				name: "Demiya",
@@ -27,7 +27,7 @@ router.get("/seed", (req, res) => {
 				cuisine: "Japanese",
 				city: "San Jose",
 				address: "375 Saratoga Ave Ste G, San Jose, CA 95129",
-				dishes: ["Japanese Curry", "Chicken Katsu Curry"]
+				dishes: "Japanese Curry, Chicken Katsu Curry"
 			}
 		],
 		(err, data) => {

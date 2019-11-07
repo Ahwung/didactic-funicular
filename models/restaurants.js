@@ -7,7 +7,7 @@ const restaurantSchema = new mongoose.Schema({
 	cuisine: {type: String, required: true},
 	city: {type: String, required: true},
 	address: {type: String, required: true},
-	dishes: [{type: String}]
+	dishes: {type: String}
 })
 
 const Restaurant = mongoose.model("Restaurant", restaurantSchema);
