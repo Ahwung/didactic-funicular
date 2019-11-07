@@ -9,7 +9,7 @@
             <h1>All Restaurants</h1>
             <% for(let i = 0; i < restaurants.length; i++) { %>
                 <div class="index-card">
-                    <h3><%=restaurants[i].name%></h3>
+                    <h3><a href="/restaurants/<%=restaurants[i].id"><%=restaurants[i].name%></a></h3>
                     <img class="index-image" src="<%=restaurants[i].img%>">
                     <p>City: <%=restaurants[i].city%></p>
                     <p>Cuisine: <%=restaurants[i].cuisine%></p>
