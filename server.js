@@ -12,6 +12,7 @@ const db = mongoose.connection;
 require("dotenv").config();
 
 const restaurantsController = require('./controllers/restaurants.js')
+const usersController = require('./controllers/users.js')
 
 // ========================
 // Port
@@ -51,6 +52,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
 app.use('/restaurants', restaurantsController)
+app.use('/users', usersController)
 
 // ========================
 // Routes
