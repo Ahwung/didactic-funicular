@@ -10,15 +10,13 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
 	User.findOne({username: req.body.username}, (err, foundUser) => {
 		if (foundUser === null) {
-			alert("User account not found")
 			res.redirect('/users/new')
 		} else {
 			const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
 			if (doesPasswordMatch) {
 				req.session.username = foundUser.username
-				res.redirect('/')
+				res.redirect('/restaurants')
 			} else {
-				alert("Incorrect password")
 				res.redirect('/sessions/new')
 			}
 		}
