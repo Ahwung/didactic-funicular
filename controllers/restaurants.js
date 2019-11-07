@@ -54,7 +54,8 @@ router.get("/:id/edit", (req, res) => {
 router.get("/:id", (req, res) => {
 	Restaurant.findById(req.params.id, (err, foundRestaurant) => {
 		res.render('restaurants/show.ejs', {
-			restaurant: foundRestaurant
+			restaurant: foundRestaurant,
+			username: req.session.username
 		})
 	})
 })
