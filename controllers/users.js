@@ -3,6 +3,23 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const User = require('../models/users.js')
 
+// Seed data
+router.get("/seed", (req, res) => {
+	Restaurant.create(
+		[
+			{
+				username: "adam",
+				password: "asdf",
+				moderator: true,
+				favorites: []
+
+			},
+		],
+		(err, data) => {
+			res.redirect("/restaurants");
+		}
+	);
+});
 
 // Route to get to New User page
 router.get('/new', (req, res) => {
