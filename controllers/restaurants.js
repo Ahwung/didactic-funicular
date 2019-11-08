@@ -116,6 +116,7 @@ router.put("/:id/favorite", (req, res) => {
 			{ $addToSet: { favorites: req.params.id } },
 			(err, updatedUser) => {
 				console.log("updatedUser ADD favorite: ", updatedUser);
+				res.redirect('/restaurants/' + req.params.id)
 				return updatedUser;
 			}
 		);
