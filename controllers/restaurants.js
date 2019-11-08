@@ -126,6 +126,7 @@ router.put("/:id/favorite", (req, res) => {
 			{ $pull: { favorites: req.params.id } },
 			(err, updatedUser) => {
 				console.log("updatedUser REMOVE favorite: ", updatedUser);
+				res.redirect('/restaurants/' + req.params.id)
 				return updatedUser;
 			}
 		);
