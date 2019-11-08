@@ -54,13 +54,31 @@ router.get("/:id/edit", (req, res) => {
 	});
 });
 
+// Route to get to Favorites Page
+router.get("/favorites", (req, res) => {
+	console.log('req.session.user.favorites: ', req.session.user.favorites)
+	const userFavorites = []
+	for (let i = 0; i < req.session.user.favorites.length; i++) {
+		Restaurant.find({_id: req.session.user.favorites[i]}, (err, favoriteRestaurants) => {
+			userFavorites.push(favoriteRestaurants[0])
+			console.log('userFavorites: ', userFavorites)
+			if (userFavorites.length === req.session.user.favorites.length) {
+				console.log('userFavorites2: ', userFavorites)
+				res.render('restaurants/favorites.ejs', {
+					restaurants: userFavorites
+				})
+			}
+		})	
+	}
+})
+
 // Route to get to Show page
 router.get("/:id", (req, res) => {
 	Restaurant.findById(req.params.id, (err, foundRestaurant) => {
-		// check if the user is logged in
-		if (!req.session.user) {
-			// redirect to the login page
-		}
+		// // check if the user is logged in
+		// if (!req.session.user) {
+		// 	// redirect to the login page
+		// }
 
 		let favorited = false;
 
@@ -90,15 +108,6 @@ router.get("/", (req, res) => {
 		});
 	});
 });
-
-// Route to get to Favorites Page
-router.get("/favorites", (req, res) => {
-	let userFavorites = []
-	for (let i = 0; i < req.session.user.favorites.length; i++) {
-		userFavorites.push(req.session.user.favorites[i])
-	}
-	res.send(userFavorites)
-})
 
 // Route to edit entries in the collection
 router.put("/:id", (req, res) => {

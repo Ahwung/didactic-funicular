@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head.ejs %>
+    </head>
+    <body>
+        <div class="container">
+            <% include ../partials/header.ejs %>
+            <h1>My Favorite Restaurants</h1>
+             <% for(let i = 0; i < restaurants.length; i++) { %>
+                <div class="index-card">
+                    <h3><a href="/restaurants/<%=restaurants[i].id%>"><%=restaurants[i].name%></a></h3>
+                    <img class="index-image" src="<%=restaurants[i].img%>">
+                    <p>City: <%=restaurants[i].city%></p>
+                    <p>Cuisine: <%=restaurants[i].cuisine%></p>
+                </div>
+            <% } %>
+        </div>
+    </body>
+</html>
