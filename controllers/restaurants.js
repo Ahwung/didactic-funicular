@@ -91,6 +91,15 @@ router.get("/", (req, res) => {
 	});
 });
 
+// Route to get to Favorites Page
+router.get("/favorites" (req, res) => {
+	let userFavorites = []
+	for (let i = 0; i < req.session.user.favorites.length; i++) {
+		userFavorites.push(req.session.user.favorites[i])
+	}
+	res.send(userFavorites)
+})
+
 // Route to edit entries in the collection
 router.put("/:id", (req, res) => {
 	Restaurant.findByIdAndUpdate(
