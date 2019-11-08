@@ -53,9 +53,17 @@ router.get("/:id/edit", (req, res) => {
 // Route to get to Show page
 router.get("/:id", (req, res) => {
 	Restaurant.findById(req.params.id, (err, foundRestaurant) => {
+		const favorited = if (req.session.favorites.indexOf(req.params.id) === -1) {
+			return false
+		} else {
+			return true
+		}
+
 		res.render('restaurants/show.ejs', {
 			restaurant: foundRestaurant,
-			username: req.session.username
+			username: req.session.username,
+			userId: req.session.id,
+			favorited
 		})
 	})
 })
@@ -75,6 +83,20 @@ router.put("/:id", (req, res) => {
 		res.redirect("/restaurants/" + req.params.id)
 	})
 })
+
+router.put("/:id/favorite", (req, res) => {
+	// 1. Find the restaurant by id and return restaurant object
+	// 2. Find the current logged in user's object to update
+	if (req.session.favorites.indexOf(req.params.id) === -1) {
+		User.findByIdAndUpdate(req.session.id, {..., favorites: req.session.favorites.push(req.params.id)}, (err, updatedUser) => {
+		return updatedUser
+		})
+	} else {
+		User.findByIdAndUpdate(req.session.id, {..., favorites: req.session.favorites.push(req.params.id)}, (err, updatedUser) => {
+		return updatedUser
+		})
+	}	
+}
 
 // Route to create entries in the collection
 router.post('/', (req, res) => {

@@ -17,6 +17,9 @@
                 <form action="/restaurants/<%=restaurant.id%>?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE">
                 </form>
+                <form action="/restaurants/<%=restaurant.id%>/favorite?_method=PUT" method="POST">
+                    <input type="submit" value="<%=favorited%>">
+                </form>
                 <nav>
                     <a href="/restaurants/<%=restaurant.id%>/edit">Edit</a>
                 </nav>
