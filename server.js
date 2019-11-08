@@ -68,7 +68,11 @@ app.use('/sessions', sessionsController)
 // ========================
 
 app.get('/', (req, res) => {
-	res.send("hello world")
+	res.render('home.ejs')
+})
+
+app.get('/favorites', (req, res) => {
+	res.render('favorites.ejs')
 })
 
 // ========================
