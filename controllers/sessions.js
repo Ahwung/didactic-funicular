@@ -14,6 +14,7 @@ router.post('/', (req, res) => {
 		} else {
 			const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
 			if (doesPasswordMatch) {
+				req.session.user = foundUser
 				req.session.username = foundUser.username
 				res.redirect('/restaurants')
 			} else {
