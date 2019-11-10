@@ -8,23 +8,68 @@
             <% include ../partials/header.ejs %>
             <h1>Edit restaurant</h1>
             <div class="edit-form">
-                <form action="/restaurants/<%=restaurant.id%>?_method=PUT" method="POST">
+                <form
+                    action="/restaurants/<%=restaurant.id%>?_method=PUT"
+                    method="POST"
+                >
                     <fieldset class="restaurant-info">
-                        <legend>Restaurant Details</legend>
-                        <label for="name">NAME</label>
-                        <input type="text" name="name" value="<%=restaurant.name%>">
-                        <label for="name">IMAGE</label>
-                        <input type="text" name="img" value="<%=restaurant.img%>">
-                        <label for="name">CUISINE</label>
-                        <input type="text" name="cuisine" value="<%=restaurant.cuisine%>">
-                        <label for="name">CITY</label>
-                        <input type="text" name="city" value="<%=restaurant.city%>">
-                        <label for="name">ADDRESS</label>
-                        <input type="text" name="address" value="<%=restaurant.address%>">
-                        <label for="name">POPULAR DISHES</label>
-                        <input type="text" name="dishes" value="<%=restaurant.dishes%>">
+                        <legend>Edit Restaurant Details</legend>
+                        <div class="form-group">
+                            <label for="name">NAME</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="name"
+                                value="<%=restaurant.name%>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">IMAGE</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="img"
+                                value="<%=restaurant.img%>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">CUISINE</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="cuisine"
+                                value="<%=restaurant.cuisine%>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">CITY</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="city"
+                                value="<%=restaurant.city%>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">ADDRESS</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="address"
+                                value="<%=restaurant.address%>"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">POPULAR DISHES</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="dishes"
+                                value="<%=restaurant.dishes%>"
+                            />
+                        </div>
                     </fieldset>
-                    <input type="submit" value="Edit">
+                    <input type="submit" value="Edit" />
                 </form>
             </div>
         </div>
