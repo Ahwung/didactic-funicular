@@ -7,14 +7,21 @@
         <div class="container">
             <% include ../partials/header.ejs %>
             <h1>All Restaurants</h1>
-            <% for(let i = 0; i < restaurants.length; i++) { %>
-                <div class="index-card">
-                    <h3><a href="/restaurants/<%=restaurants[i].id%>"><%=restaurants[i].name%></a></h3>
-                    <img class="index-image" src="<%=restaurants[i].img%>">
-                    <p>City: <%=restaurants[i].city%></p>
-                    <p>Cuisine: <%=restaurants[i].cuisine%></p>
+            <div class="card-deck">
+                <% for(let i = 0; i < restaurants.length; i++) { %>
+                <div class="card">
+                    <img class="index-image card-image-top" src="<%=restaurants[i].img%>" />
+                    <div class="card-body">
+                        <h5 class="card-title"><%=restaurants[i].name%></h5>
+                        <p class="card-text">City: <%=restaurants[i].city%></p>
+                        <p class="card-text">Cuisine: <%=restaurants[i].cuisine%></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/restaurants/<%=restaurants[i].id%>">More Details</a>
+                    </div>
                 </div>
-            <% } %>
+                <% } %>
+            </div>
         </div>
     </body>
 </html>
