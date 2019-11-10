@@ -6,23 +6,48 @@
     <body>
         <div class="container">
             <% include ../partials/header.ejs %>
-            <div class="show-restaurant">
-                <h1><%=restaurant.name%></h1>
-                <img src="<%=restaurant.img%>">
-                <h4>Cuisine: <%=restaurant.cuisine%></h4>
-                <h4>Address: <%=restaurant.address%></h4>
-                <h4>Popular Dishes: <%=restaurant.dishes%></h4>
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img
+                            class="card-image detail-image"
+                            src="<%=restaurant.img%>"
+                        />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=restaurant.name%></h5>
+                            <p class="card-text">
+                                Cuisine: <%=restaurant.cuisine%>
+                            </p>
+                            <p class="card-text">
+                                Address: <%=restaurant.address%>
+                            </p>
+                            <p class="card-text">
+                                Popular Dishes: <%=restaurant.dishes%>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <% if(username) { %>
-                <form action="/restaurants/<%=restaurant.id%>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE">
+            <div class="card-footer">
+                <form
+                    action="/restaurants/<%=restaurant.id%>?_method=DELETE"
+                    method="POST"
+                >
+                    <input type="submit" value="DELETE" />
                 </form>
-                <form action="/restaurants/<%=restaurant.id%>/favorite?_method=PUT" method="POST">
-                    <input type="submit" value="<%=favorited%>">
+                <form
+                    action="/restaurants/<%=restaurant.id%>/favorite?_method=PUT"
+                    method="POST"
+                >
+                    <input type="submit" value="<%=favorited%>" />
                 </form>
                 <nav>
                     <a href="/restaurants/<%=restaurant.id%>/edit">Edit</a>
                 </nav>
+            </div>
             <% } %>
         </div>
     </body>

@@ -1,5 +1,22 @@
+body {
+	background-color: lightgrey;
+}
+
 /* Index Page Styling */
+
+.index-card {
+	width: 10px;
+}
 
 .index-image {
 	height: 25vw;
+	width: 100%;
+}
+
+/* Show Page Styling */
+
+
+.detail-image {
+	width:100%;
+	height: 30vw;
 }
