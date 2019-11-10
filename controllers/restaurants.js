@@ -144,7 +144,7 @@ router.put("/:id/favorite", (req, res) => {
 			{ $addToSet: { favorites: req.params.id } },
 			(err, updatedUser) => {
 				console.log("updatedUser ADD favorite: ", updatedUser);
-				res.redirect("/restaurants/" + req.params.id);
+				res.redirect("/restaurants/");
 				return updatedUser;
 			}
 		);
@@ -154,7 +154,7 @@ router.put("/:id/favorite", (req, res) => {
 			{ $pull: { favorites: req.params.id } },
 			(err, updatedUser) => {
 				console.log("updatedUser REMOVE favorite: ", updatedUser);
-				res.redirect("/restaurants/" + req.params.id);
+				res.redirect("/restaurants/");
 				return updatedUser;
 			}
 		);
