@@ -1,13 +1,22 @@
 <header>
-    <nav>
-        <a href="/">HOMEPAGE</a>
-        <a href="/restaurants">ALL RESTAURANTS</a>
-        <a href="/restaurants/new">ADD A RESTAURANT</a>
-        <a href="/restaurants/favorites">MY FAVORITES</a>
-        <a href="/users/new">SIGN UP</a>
-        <a href="/sessions/new">LOG IN</a>
-        <form action="/sessions/destroy" method="POST">
-        	<input type="submit" value="LOG OUT">
-        </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Restaurant City</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/restaurants">All Restaurants</a>
+            <a class="nav-item nav-link" href="/restaurants/new">Add a Restaurant</a>
+            <a class="nav-item nav-link" href="restaurants/favorites">My Favorites</a>
+            <form action="/sessions/new">
+                <input type="submit" value="Log In"
+            </form>
+            <form action="/sessions/destroy" method="POST">
+                <input type="submit" value="Log Out">
+            </form>
+        </div>
+      </div>
     </nav>
 </header>
