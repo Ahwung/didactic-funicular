@@ -56,21 +56,31 @@ router.get("/:id/edit", (req, res) => {
 
 // Route to get to Favorites Page
 router.get("/favorites", (req, res) => {
-	console.log('req.session.user.favorites: ', req.session.user.favorites)
-	const userFavorites = []
-	for (let i = 0; i < req.session.user.favorites.length; i++) {
-		Restaurant.find({_id: req.session.user.favorites[i]}, (err, favoriteRestaurants) => {
-			userFavorites.push(favoriteRestaurants[0])
-			console.log('userFavorites: ', userFavorites)
-			if (userFavorites.length === req.session.user.favorites.length) {
-				console.log('userFavorites2: ', userFavorites)
-				res.render('restaurants/favorites.ejs', {
-					restaurants: userFavorites
-				})
-			}
-		})	
+	if (!req.session.user) {
+		res.redirect("/sessions/new");
+	} else {
+		console.log("req.session.user.favorites: ", req.session.user.favorites);
+		const userFavorites = [];
+		for (let i = 0; i < req.session.user.favorites.length; i++) {
+			Restaurant.find(
+				{ _id: req.session.user.favorites[i] },
+				(err, favoriteRestaurants) => {
+					userFavorites.push(favoriteRestaurants[0]);
+					console.log("userFavorites: ", userFavorites);
+					if (
+						userFavorites.length ===
+						req.session.user.favorites.length
+					) {
+						console.log("userFavorites2: ", userFavorites);
+						res.render("restaurants/favorites.ejs", {
+							restaurants: userFavorites
+						});
+					}
+				}
+			);
+		}
 	}
-})
+});
 
 // Route to get to Show page
 router.get("/:id", (req, res) => {
@@ -134,7 +144,7 @@ router.put("/:id/favorite", (req, res) => {
 			{ $addToSet: { favorites: req.params.id } },
 			(err, updatedUser) => {
 				console.log("updatedUser ADD favorite: ", updatedUser);
-				res.redirect('/restaurants/' + req.params.id)
+				res.redirect("/restaurants/" + req.params.id);
 				return updatedUser;
 			}
 		);
@@ -144,7 +154,7 @@ router.put("/:id/favorite", (req, res) => {
 			{ $pull: { favorites: req.params.id } },
 			(err, updatedUser) => {
 				console.log("updatedUser REMOVE favorite: ", updatedUser);
-				res.redirect('/restaurants/' + req.params.id)
+				res.redirect("/restaurants/" + req.params.id);
 				return updatedUser;
 			}
 		);
