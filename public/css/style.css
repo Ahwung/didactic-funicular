@@ -4,12 +4,16 @@ body {
 
 /* Index Page Styling */
 
+.container {
+	margin: 0 auto;
+}
+
 .index-card {
 	width: 10px;
 }
 
 .index-image {
-	height: 20vw;
+	height: 17vw;
 	width: 100%;
 }
 
